@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="tcom.cmgy.erp.mapper.GoodsPersonMappingMapper">
+
+    <insert id="createGoodsPersonMapping">
+        insert into goods_person_map (goods_name,person_name,price)
+        values{#{goodsName,jdbcType=Stirng.class},#{personName,jdbcType=String.class},#{price,jdbcType=Double.class})
+    </insert>
+
+    <select id="selectByGoodsName" resultType="com.cmgy.erp.model.GoodsPersonMapping">
+        select * from goods_person_map where goods_name=#{goodsName}
+    </select>
+
+    <select id="selectByPersonName" resultType="com.cmgy.erp.model.GoodsPersonMapping">
+        select * from goods_person_map where person=#{personName}
+    </select>
+
+    <select id="selectByPersonNameAndGoodsName" resultType="com.cmgy.erp.model.GoodsPersonMapping">
+        select * from goods_person_map where goods_name=#{goodsName} and person=#{personName}
+    </select>
+</mapper>
